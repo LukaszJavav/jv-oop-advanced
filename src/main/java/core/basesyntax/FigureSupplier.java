@@ -9,9 +9,11 @@ public class FigureSupplier {
 
     private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
-    public Figure getRandomFigure(){
-        int randomFigure = random.nextInt(MAX_FIGURES)+1;
-        switch(randomFigure){
+
+    public Figure getRandomFigure() {
+        int randomFigure = random.nextInt(MAX_FIGURES) + 1;
+
+        switch (randomFigure) {
             case 1:
                 double radius = randomParameter();
                 Circle circle = new Circle(radius);
@@ -25,34 +27,37 @@ public class FigureSupplier {
             case 3:
                 double length = randomParameter();
                 double width = randomParameter();
-                Rectangle rectangle = new Rectangle(length,width);
+                Rectangle rectangle = new Rectangle(length, width);
                 rectangle.setColor(colorSupplier.getRandomColor());
                 return rectangle;
             case 4:
                 double firstLeg = randomParameter();
                 double secondLeg = randomParameter();
                 double base = randomParameter();
-                RightTriangle rightTriangle = new RightTriangle(firstLeg, secondLeg, base);
+                RightTriangle rightTriangle = new RightTriangle(
+                        firstLeg, secondLeg, base);
                 rightTriangle.setColor(colorSupplier.getRandomColor());
                 return rightTriangle;
             case 5:
                 double firstBase = randomParameter();
                 double secondBase = randomParameter();
                 double leg = randomParameter();
-                IsoscelesTrapezoid isoscelesTrapezoid = new IsoscelesTrapezoid(firstBase, secondBase, leg);
+                IsoscelesTrapezoid isoscelesTrapezoid =
+                        new IsoscelesTrapezoid(firstBase, secondBase, leg);
                 isoscelesTrapezoid.setColor(colorSupplier.getRandomColor());
                 return isoscelesTrapezoid;
-                default:
-                    return getDefaultFigure();
-            }
-        }
-        public double randomParameter() {
-            return random.nextInt(MIN_SIZE,MAX_SIZE);
-        }
-        public Figure getDefaultFigure() {
-           Circle circle = new Circle(10);
-           circle.setColor("white");
-           return circle;
+            default:
+                return getDefaultFigure();
         }
     }
-    
+
+    public double randomParameter() {
+        return random.nextInt(MIN_SIZE, MAX_SIZE);
+    }
+
+    public Figure getDefaultFigure() {
+        Circle circle = new Circle(10);
+        circle.setColor("white");
+        return circle;
+    }
+}

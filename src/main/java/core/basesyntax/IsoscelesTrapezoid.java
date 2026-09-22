@@ -36,7 +36,7 @@ public void setLeg(double leg) {
     this.leg = leg;
 }
 @Override 
-public getArea(){
+public double getArea(){
         return (firstBase + secondBase)* leg/2 ;
     }
 

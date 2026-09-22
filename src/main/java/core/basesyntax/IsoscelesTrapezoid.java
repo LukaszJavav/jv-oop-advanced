@@ -48,3 +48,4 @@ public void draw() { System.out.println("Figure: IsoscelesTrapezoid"
      + ", leg: " + leg 
      + ", color: " + getColor()); 
     }
+}
